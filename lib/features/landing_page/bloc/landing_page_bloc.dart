@@ -30,6 +30,8 @@ class LandingPageBloc extends Bloc<LandingPageEvent, LandingPageState> {
     try {
       final response = await http
           .get(Uri.parse(Constant.mainBaseUrl + ApiUrls.packages_list));
+          print(response.body);
+          print(response.request);
       if (response.statusCode == 200) {
         final data = packagesListModelFromJson(response.body);
         print("Package List Message ${data.message}");
